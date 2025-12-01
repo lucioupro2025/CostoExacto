@@ -2,19 +2,17 @@ name: Build/release
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   pull_request:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
   release:
-    runs-on: ${{ matrix.os }}
-
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [ubuntu-24.04, windows-latest, macos-latest]
+
+    runs-on: ${{ matrix.os }}
 
     steps:
       - name: Check out Git repository
@@ -31,11 +29,29 @@ jobs:
       - name: Build Electron app
         run: npm run electron:build
 
-      - name: Upload artifacts
+      # === SUBIR ARTEFACTOS POR SISTEMA OPERATIVO ===
+      - name: Upload Linux artifacts
+        if: matrix.os == 'ubuntu-24.04'
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ matrix.os }}-build
+          name: linux-build
           path: |
-            dist-electron/*.exe
             dist-electron/*.AppImage
-            dist-electron/*.dmg
+            dist-electron/*.deb
+          if-no-files-found: ignore
+
+      - name: Upload Windows artifacts
+        if: matrix.os == 'windows-latest'
+        uses: actions/upload-artifact@v3
+        with:
+          name: windows-build
+          path: dist-electron/*.exe
+          if-no-files-found: ignore
+
+      - name: Upload macOS artifacts
+        if: matrix.os == 'macos-latest'
+        uses: actions/upload-artifact@v3
+        with:
+          name: macos-build
+          path: dist-electron/*.dmg
+          if-no-files-found: ignore
