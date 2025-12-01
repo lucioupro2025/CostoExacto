@@ -11,7 +11,7 @@
     "electron:build": "vite build && electron-builder"
   },
   "keywords": [],
-  "author": "",
+  "author": "Lucio Vita <luciomartinvita@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "lucide-react": "^0.263.1",
