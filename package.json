@@ -33,24 +33,33 @@
     "appId": "com.costoexacto.app",
     "productName": "CostoExacto",
     "directories": {
-      "output": "dist-electron"
+      "output": "dist-electron",
+      "buildResources": "build"
     },
     "files": [
       "dist/**/*",
-      "electron/**/*"
+      "electron/**/*",
+      "package.json"
     ],
-    "publish": "never",
+    "extraMetadata": {
+      "main": "electron/main.js"
+    },
+    "publish": null,
     "linux": {
-      "target": [
-        "AppImage"
-      ],
+      "target": ["AppImage", "deb"],
       "category": "Office"
     },
     "win": {
-      "target": "nsis"
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        }
+      ]
     },
     "mac": {
-      "target": "dmg"
+      "target": ["dmg"],
+      "category": "public.app-category.productivity"
     }
   }
 }
