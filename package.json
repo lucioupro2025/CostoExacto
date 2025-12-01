@@ -30,37 +30,27 @@
     "wait-on": "^7.0.1"
   },
   "build": {
-  "appId": "com.costoexacto.app",
-  "productName": "CostoExacto",
-  "directories": {
-    "output": "dist-electron"
-  },
-  "files": [
-    "dist/**/*",
-    "electron/**/*"
-  ],
-
-  "publish": "never",
-
-  "linux": {
-    "target": ["AppImage"],
-    "category": "Office"
-  },
-
-  "win": {
-    "target": "nsis"
-  }
-},
-
+    "appId": "com.costoexacto.app",
+    "productName": "CostoExacto",
+    "directories": {
+      "output": "dist-electron"
+    },
     "files": [
       "dist/**/*",
       "electron/**/*"
     ],
+    "publish": "never",
     "linux": {
       "target": [
         "AppImage"
       ],
       "category": "Office"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "mac": {
+      "target": "dmg"
     }
   }
 }
