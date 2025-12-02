@@ -599,7 +599,7 @@ export default function App() {
               rel="noopener noreferrer"
               className="text-indigo-600 hover:text-indigo-800 font-semibold hover:underline"
             >
-              TuSitioWeb.com
+              guruweb.com.ar
             </a>
           </p>
           <p className="text-xs text-gray-400 mt-1">© 2024 - Gestor de Costos Profesional</p>
