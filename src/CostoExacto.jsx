@@ -588,6 +588,23 @@ export default function App() {
         )}
 
       </main>
+      {/* Footer con créditos */}
+      <footer className="bg-gray-100 border-t border-gray-200 py-4 mt-12">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <p className="text-sm text-gray-600">
+            Desarrollado por{' '}
+            <a 
+              href="https://guruweb.com.ar" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-indigo-600 hover:text-indigo-800 font-semibold hover:underline"
+            >
+              TuSitioWeb.com
+            </a>
+          </p>
+          <p className="text-xs text-gray-400 mt-1">© 2024 - Gestor de Costos Profesional</p>
+        </div>
+      </footer>
     </div>
   );
 }
